@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/drawable-v24/white_rounded_bg_dark.xml" value="0.2203125" />
+        <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/drawable/bg_finding.xml" value="0.2203125" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/drawable/gray_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/drawable/white_rounded_bg.xml" value="0.2203125" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_call.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_connecting.xml" value="0.67" />
+        <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_connecting.xml" value="0.22" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_gender.xml" value="0.2" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/activity_main.xml" value="0.22" />

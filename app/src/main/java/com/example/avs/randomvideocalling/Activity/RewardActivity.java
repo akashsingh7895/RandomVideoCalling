@@ -179,17 +179,12 @@ public class RewardActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
     }
 
     void loadAd() {
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        RewardedAd.load(this, "ca-app-pub-3940256099942544/5224354917",
+        RewardedAd.load(this, getString(R.string.reward_video_ad),
                 adRequest, new RewardedAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
