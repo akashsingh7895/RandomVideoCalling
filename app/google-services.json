@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "100274317536",
+    "project_id": "randomvideocalling-32c39",
+    "storage_bucket": "randomvideocalling-32c39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100274317536:android:649bb02c772ebd16cf4885",
+        "android_client_info": {
+          "package_name": "com.example.avs.randomvideocalling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100274317536-bvtuu3snu95i6s9tm7jo93osa8gctu5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWxgW0Er3DmmKRnDwaQC8RKShzh037QE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100274317536-bvtuu3snu95i6s9tm7jo93osa8gctu5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
