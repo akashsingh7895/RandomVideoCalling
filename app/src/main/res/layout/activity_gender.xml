@@ -20,6 +20,20 @@
         app:lottie_rawRes="@raw/love_floting" />
 
 
+    <com.google.android.ads.nativetemplates.TemplateView
+        android:id="@+id/my_template"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView1" />
+
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="80dp"

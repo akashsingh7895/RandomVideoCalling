@@ -16,9 +16,14 @@ import com.example.avs.randomvideocalling.Activity.ConnectingActivity;
 import com.example.avs.randomvideocalling.Activity.RewardActivity;
 import com.example.avs.randomvideocalling.Models.User;
 import com.example.avs.randomvideocalling.databinding.ActivityMainBinding;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     User user;
     KProgressHUD progress;
 
+    InterstitialAd mInterstitialAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
         progress = KProgressHUD.create(this);
         progress.setDimAmount(0.5f);
@@ -91,23 +93,58 @@ public class MainActivity extends AppCompatActivity {
         binding.findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isPermissionsGranted()) {
-                    if (coins > 5) {
-                        coins = coins - 5;
-                        database.getReference().child("profiles")
-                                .child(currentUser.getUid())
-                                .child("coins")
-                                .setValue(coins);
-                        Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
-                        intent.putExtra("profile", user.getProfile());
-                        startActivity(intent);
-                        //startActivity(new Intent(MainActivity.this, ConnectingActivity.class));
+                if (mInterstitialAd!=null){
+                    mInterstitialAd.show(MainActivity.this);
+                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+                        @Override
+                        public void onAdDismissedFullScreenContent() {
+                            super.onAdDismissedFullScreenContent();
+
+                            if(isPermissionsGranted()) {
+                                if (coins > 5) {
+                                    coins = coins - 5;
+                                    database.getReference().child("profiles")
+                                            .child(currentUser.getUid())
+                                            .child("coins")
+                                            .setValue(coins);
+                                    Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
+                                    intent.putExtra("profile", user.getProfile());
+                                    startActivity(intent);
+                                    //startActivity(new Intent(MainActivity.this, ConnectingActivity.class));
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Insufficient Coins", Toast.LENGTH_SHORT).show();
+                                }
+                            } else {
+                                askPermissions();
+                            }
+
+
+                        }
+                    });
+                }else {
+
+
+                    if(isPermissionsGranted()) {
+                        if (coins > 5) {
+                            coins = coins - 5;
+                            database.getReference().child("profiles")
+                                    .child(currentUser.getUid())
+                                    .child("coins")
+                                    .setValue(coins);
+                            Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
+                            intent.putExtra("profile", user.getProfile());
+                            startActivity(intent);
+                            //startActivity(new Intent(MainActivity.this, ConnectingActivity.class));
+                        } else {
+                            Toast.makeText(MainActivity.this, "Insufficient Coins", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
-                        Toast.makeText(MainActivity.this, "Insufficient Coins", Toast.LENGTH_SHORT).show();
+                        askPermissions();
                     }
-                } else {
-                    askPermissions();
+
+
                 }
+
             }
         });
 
@@ -118,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        showInterAds();
 
 
     }
@@ -135,5 +172,26 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
 
+    }
+    public void showInterAds(){
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+
+                        mInterstitialAd = null;
+                    }
+                });
     }
 }
