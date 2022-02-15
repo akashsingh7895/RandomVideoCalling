@@ -141,7 +141,7 @@ public class ConnectingActivity extends AppCompatActivity {
                 });
 
         MobileAds.initialize(this);
-        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
                 .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
                     @Override
                     public void onNativeAdLoaded(NativeAd nativeAd) {

@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">RandomVideoCalling</string>
 
-    <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>
+
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="netive_ads">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="inter_ads">ca-app-pub-3940256099942544/1033173712</string>
+
+
+    <string name="drawerOpen">open</string>
+    <string name="drawerClose">close</string>
+
+
+    <string name="supported_email">akash4099@gmail.com</string>
+    <string name="terms_condition">https://stackoverflow.com/questions/23411391/how-to-make-contact-us-form-in-android</string>
+    <string name="privacy_policy">https://stackoverflow.com/questions/23411391/how-to-make-contact-us-form-in-android</string>
+
+
 </resources>

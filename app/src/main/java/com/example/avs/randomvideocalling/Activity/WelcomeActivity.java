@@ -67,7 +67,7 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         MobileAds.initialize(this);
-        AdLoader adLoader = new AdLoader.Builder(this, "ca-app-pub-3940256099942544/2247696110")
+        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
                 .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
                     @Override
                     public void onNativeAdLoaded(NativeAd nativeAd) {
@@ -86,7 +86,7 @@ public class WelcomeActivity extends AppCompatActivity {
     public void showInterAds(){
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,getString(R.string.inter_ads), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {

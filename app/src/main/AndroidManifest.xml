@@ -15,27 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomVideoCalling">
         <activity
-            android:name=".Activity.WelcomeActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.GenderActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.RewardActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.CallActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.ConnectingActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".Activity.LogInActivity"
+            android:name=".Activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -45,12 +25,45 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activity.WelcomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.GenderActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.RewardActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.CallActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.ConnectingActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.LogInActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
+
+        <service android:name=".Models.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

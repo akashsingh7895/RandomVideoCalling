@@ -1,18 +1,25 @@
 package com.example.avs.randomvideocalling;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.avs.randomvideocalling.Activity.ConnectingActivity;
+import com.example.avs.randomvideocalling.Activity.LogInActivity;
 import com.example.avs.randomvideocalling.Activity.RewardActivity;
 import com.example.avs.randomvideocalling.Models.User;
 import com.example.avs.randomvideocalling.databinding.ActivityMainBinding;
@@ -24,12 +31,16 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
 import org.jetbrains.annotations.NotNull;
@@ -46,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     KProgressHUD progress;
 
     InterstitialAd mInterstitialAd;
+
+    private ActionBarDrawerToggle toggle;
 
 
     @Override
@@ -67,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
 
         FirebaseUser currentUser = auth.getCurrentUser();
+
+        firebaseNotification();
 
         database.getReference().child("profiles")
                 .child(currentUser.getUid())
@@ -90,6 +105,118 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
+
+
+
+        toggle = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.drawerOpen,R.string.drawerClose);
+
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+
+        binding. drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        binding.navigationView.setItemIconTintList(null);
+
+        binding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            MenuItem menuItem;
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                menuItem = item;
+
+
+                binding.drawerLayout.closeDrawer(GravityCompat.START);
+                binding.drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+                        super.onDrawerClosed(drawerView);
+
+                        switch (menuItem.getItemId()) {
+
+                            case R.id.shareThis:
+
+                                try {
+                                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                    shareIntent.setType("text/plain");
+                                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+                                    String shareMessage= "\nLet me recommend you this application\n\n";
+                                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id = com.example.akash.newapp" + BuildConfig.APPLICATION_ID +"\n\n";
+                                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                                    startActivity(Intent.createChooser(shareIntent, "choose one"));
+                                } catch(Exception e) {
+                                    //e.toString();
+                                }
+
+                                break;
+                            case R.id.rateThisApp:
+
+                                try{
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+getPackageName())));
+                                }
+                                catch (ActivityNotFoundException e){
+                                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName())));
+                                }
+
+                                break;
+                            case R.id.contactUs:
+
+                                Intent i = new Intent(Intent.ACTION_SEND);
+                                i.setType("message/rfc822");
+                                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{getString(R.string.supported_email)});
+                                i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+                                i.putExtra(Intent.EXTRA_TEXT   , "body of email");
+                                try {
+                                    startActivity(Intent.createChooser(i, "Send mail..."));
+                                } catch (android.content.ActivityNotFoundException ex) {
+                                    Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                                }
+
+                                break;
+                            case R.id.privacyPoliy:
+
+                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy)));
+                                startActivity(browserIntent);
+
+                                break;
+                            case R.id.termsCondi:
+                                Intent searchIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.terms_condition)));
+                                startActivity(searchIntent);
+
+                                break;
+                            case R.id.logout:
+                                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                                firebaseAuth.signOut();
+                                startActivity(new Intent(MainActivity.this, LogInActivity.class));
+                        }
+                        binding.drawerLayout.removeDrawerListener(this);
+
+
+                    }
+                });
+
+                return true;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         binding.findButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,8 +228,8 @@ public class MainActivity extends AppCompatActivity {
                             super.onAdDismissedFullScreenContent();
 
                             if(isPermissionsGranted()) {
-                                if (coins > 5) {
-                                    coins = coins - 5;
+                                if (coins > 10) {
+                                    coins = coins - 10;
                                     database.getReference().child("profiles")
                                             .child(currentUser.getUid())
                                             .child("coins")
@@ -176,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
     public void showInterAds(){
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(this,"ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(this,getString(R.string.inter_ads), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
@@ -194,4 +321,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+  void firebaseNotification(){
+      FirebaseMessaging.getInstance().subscribeToTopic("VideoChat")
+              .addOnCompleteListener(new OnCompleteListener<Void>() {
+                  @Override
+                  public void onComplete(@NonNull Task<Void> task) {
+                      String msg ="Done";
+                      if (!task.isSuccessful()) {
+                          msg = "Failed";
+                      }
+
+                      Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                  }
+              });
+  }
 }
