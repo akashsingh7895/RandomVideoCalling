@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,9 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.avs.randomvideocalling.MainActivity;
-import com.example.avs.randomvideocalling.Models.User;
-import com.example.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.MainActivity;
+import com.avssolutionnnnnnn.avs.randomvideocalling.Models.User;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;

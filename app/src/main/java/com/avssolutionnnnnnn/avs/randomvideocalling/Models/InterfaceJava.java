@@ -1,8 +1,8 @@
-package com.example.avs.randomvideocalling.Models;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Models;
 
 import android.webkit.JavascriptInterface;
 
-import com.example.avs.randomvideocalling.Activity.CallActivity;
+import com.avssolutionnnnnnn.avs.randomvideocalling.Activity.CallActivity;
 
 
 public class InterfaceJava {

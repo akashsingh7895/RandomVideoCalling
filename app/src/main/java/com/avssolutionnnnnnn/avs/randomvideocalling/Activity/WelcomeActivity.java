@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,13 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.avs.randomvideocalling.R;
-import com.example.avs.randomvideocalling.databinding.ActivityWelcomeBinding;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.SelectedActivity;
+import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityWelcomeBinding;
 import com.google.android.ads.nativetemplates.NativeTemplateStyle;
 import com.google.android.ads.nativetemplates.TemplateView;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -23,7 +22,6 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.ads.nativead.NativeAd;
-import com.google.android.gms.ads.nativead.NativeAdOptions;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -43,44 +41,32 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        showInterAds();
+      //  showInterAds();
 
         binding.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mInterstitialAd!=null){
-                    mInterstitialAd.show(WelcomeActivity.this);
-                    mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
-                        @Override
-                        public void onAdDismissedFullScreenContent() {
-                            super.onAdDismissedFullScreenContent();
-                            Intent intent = new Intent(WelcomeActivity.this,GenderActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                }else {
-                    Intent intent = new Intent(WelcomeActivity.this,GenderActivity.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(WelcomeActivity.this, SelectedActivity.class);
+                startActivity(intent);
 
             }
         });
 
-        MobileAds.initialize(this);
-        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
-                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-                    @Override
-                    public void onNativeAdLoaded(NativeAd nativeAd) {
-                        NativeTemplateStyle styles = new
-                                NativeTemplateStyle.Builder().build();
-                        TemplateView template = findViewById(R.id.my_template);
-                        template.setStyles(styles);
-                        template.setNativeAd(nativeAd);
-                    }
-                })
-                .build();
-
-        adLoader.loadAd(new AdRequest.Builder().build());
+//        MobileAds.initialize(this);
+//        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
+//                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+//                    @Override
+//                    public void onNativeAdLoaded(NativeAd nativeAd) {
+//                        NativeTemplateStyle styles = new
+//                                NativeTemplateStyle.Builder().build();
+//                        TemplateView template = findViewById(R.id.my_template);
+//                        template.setStyles(styles);
+//                        template.setNativeAd(nativeAd);
+//                    }
+//                })
+//                .build();
+//
+//        adLoader.loadAd(new AdRequest.Builder().build());
 
     }
     public void showInterAds(){

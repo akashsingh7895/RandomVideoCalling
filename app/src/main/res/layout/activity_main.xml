@@ -8,7 +8,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primiry"
+            android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -36,7 +35,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            app:srcCompat="@drawable/main_back" />
+            app:srcCompat="@drawable/background" />
 
         <LinearLayout
             android:id="@+id/userCoinsLayout"
@@ -103,6 +102,7 @@
             android:layout_marginBottom="4dp"
             app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
@@ -119,6 +119,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:lottie_autoPlay="true"
+            android:visibility="gone"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/radar" />
 
@@ -127,7 +128,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:src="@drawable/demo_user"
-            android:visibility="visible"
+            android:visibility="gone"
             app:civ_border_color="@color/white"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView1"
@@ -143,7 +144,7 @@
             android:gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Persons are looking for random people,\n click find and talk with them."
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="@+id/findButton"
             app:layout_constraintStart_toStartOf="@+id/findButton" />

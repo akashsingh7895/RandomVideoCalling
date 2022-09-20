@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.WelcomeActivity"
-    android:background="@drawable/main_back">
+    android:background="@drawable/background">
 
 
 
@@ -17,9 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
+        android:visibility="gone"
         android:layout_marginTop="60dp"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/love_floting" />
+        app:lottie_rawRes="@raw/meating" />
 
 
     <com.google.android.ads.nativetemplates.TemplateView
@@ -29,6 +30,7 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         app:gnt_template_type="@layout/gnt_medium_template_view"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"

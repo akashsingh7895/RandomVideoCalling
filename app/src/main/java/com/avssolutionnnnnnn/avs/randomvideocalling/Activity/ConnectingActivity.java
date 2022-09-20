@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
-import com.example.avs.randomvideocalling.R;
-import com.example.avs.randomvideocalling.databinding.ActivityConnectingBinding;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityConnectingBinding;
 import com.google.android.ads.nativetemplates.NativeTemplateStyle;
 import com.google.android.ads.nativetemplates.TemplateView;
 import com.google.android.gms.ads.AdLoader;
@@ -139,24 +139,6 @@ public class ConnectingActivity extends AppCompatActivity {
 
                     }
                 });
-
-        MobileAds.initialize(this);
-        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
-                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
-                    @Override
-                    public void onNativeAdLoaded(NativeAd nativeAd) {
-                        NativeTemplateStyle styles = new
-                                NativeTemplateStyle.Builder().build();
-                        TemplateView template = findViewById(R.id.my_template);
-                        template.setStyles(styles);
-                        template.setNativeAd(nativeAd);
-                    }
-                })
-                .build();
-
-        adLoader.loadAd(new AdRequest.Builder().build());
-
-
 
     }
 }

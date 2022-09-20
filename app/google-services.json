@@ -1,33 +1,116 @@
 {
   "project_info": {
-    "project_number": "100274317536",
-    "project_id": "randomvideocalling-32c39",
-    "storage_bucket": "randomvideocalling-32c39.appspot.com"
+    "project_number": "436617065320",
+    "firebase_url": "https://randomvideocalling-ed4a3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "randomvideocalling-ed4a3",
+    "storage_bucket": "randomvideocalling-ed4a3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:100274317536:android:649bb02c772ebd16cf4885",
+        "mobilesdk_app_id": "1:436617065320:android:131e185ccf999d64fc1cdd",
         "android_client_info": {
-          "package_name": "com.example.avs.randomvideocalling"
+          "package_name": "com.avs.ramdomvideocalling"
         }
       },
       "oauth_client": [
         {
-          "client_id": "100274317536-bvtuu3snu95i6s9tm7jo93osa8gctu5e.apps.googleusercontent.com",
+          "client_id": "436617065320-ev294g2hf9qp38429h3mc3bgp8uq811u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.avs.ramdomvideocalling",
+            "certificate_hash": "27d285aa81b5cbaae5f66db1acd7766f6ac63eb0"
+          }
+        },
+        {
+          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBWxgW0Er3DmmKRnDwaQC8RKShzh037QE4"
+          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "100274317536-bvtuu3snu95i6s9tm7jo93osa8gctu5e.apps.googleusercontent.com",
+              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436617065320:android:955de2c391c9a14cfc1cdd",
+        "android_client_info": {
+          "package_name": "com.avssolution.avs.randomvideocalling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436617065320-qmsjts9sq7cs7mvs88ueifdhfmhhkken.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.avssolution.avs.randomvideocalling",
+            "certificate_hash": "f0a91ce31c00a659336b73a924f1e60262e5df38"
+          }
+        },
+        {
+          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436617065320:android:d640318cb373129dfc1cdd",
+        "android_client_info": {
+          "package_name": "com.avssolutionnnnnnn.avs.randomvideocalling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436617065320-uol0q0slmve0b6k2ih0olqhe2k4u77fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.avssolutionnnnnnn.avs.randomvideocalling",
+            "certificate_hash": "f0a91ce31c00a659336b73a924f1e60262e5df38"
+          }
+        },
+        {
+          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

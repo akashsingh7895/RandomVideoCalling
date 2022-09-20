@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.avs.randomvideocalling.R;
-import com.example.avs.randomvideocalling.databinding.ActivityRewardBinding;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityRewardBinding;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.OnUserEarnedRewardListener;

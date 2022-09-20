@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.avs.randomvideocalling">
+    package="com.avssolutionnnnnnn.avs.randomvideocalling">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -14,6 +14,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomVideoCalling">
+        <activity
+            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.ChatLishActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.GroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectedActivity"
+            android:exported="false" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true"
@@ -47,9 +56,7 @@
         <activity
             android:name=".Activity.LogInActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
@@ -58,7 +65,8 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <service android:name=".Models.MyFirebaseMessagingService"
+        <service
+            android:name=".Models.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +11,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import com.example.avs.randomvideocalling.MainActivity;
-import com.example.avs.randomvideocalling.R;
-import com.example.avs.randomvideocalling.databinding.ActivitySplashBinding;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivitySplashBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SplashActivity extends AppCompatActivity {
@@ -89,7 +87,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
                 }
-            },8000);
+            },4000);
 
 
 

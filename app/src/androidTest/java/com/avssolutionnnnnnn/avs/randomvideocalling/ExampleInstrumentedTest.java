@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling;
+package com.avssolutionnnnnnn.avs.randomvideocalling;
 
 import android.content.Context;
 

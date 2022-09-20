@@ -19,6 +19,25 @@
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/layout/no_internet_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/menu/home_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/aakash/Desktop/RandomVideoCalling/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/bg_finding.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/connecting_gradient.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/ic_baseline_wifi_off_24.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/ic_launcher_background.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/reward_bg.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/drawable/round.xml" value="0.158" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_call.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_chat_lish.xml" value="0.2" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_connecting.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_gender.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_group.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_log_in.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_main.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_reward.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_selected.xml" value="0.18" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_splash.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/activity_welcome.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/header.xml" value="0.178125" />
+        <entry key="..\:/Users/zeb/Android Studio Project/RandomVideoCalling/app/src/main/res/layout/item_layout.xml" value="0.17447916666666666" />
       </map>
     </option>
   </component>

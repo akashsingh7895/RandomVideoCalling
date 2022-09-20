@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Activity;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +14,10 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.avs.randomvideocalling.Models.InterfaceJava;
-import com.example.avs.randomvideocalling.Models.User;
-import com.example.avs.randomvideocalling.R;
-import com.example.avs.randomvideocalling.databinding.ActivityCallBinding;
+import com.avssolutionnnnnnn.avs.randomvideocalling.Models.InterfaceJava;
+import com.avssolutionnnnnnn.avs.randomvideocalling.Models.User;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityCallBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

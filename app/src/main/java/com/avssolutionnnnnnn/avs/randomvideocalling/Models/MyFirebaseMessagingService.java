@@ -1,10 +1,10 @@
-package com.example.avs.randomvideocalling.Models;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Models;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.example.avs.randomvideocalling.R;
+import com.avssolutionnnnnnn.avs.randomvideocalling.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

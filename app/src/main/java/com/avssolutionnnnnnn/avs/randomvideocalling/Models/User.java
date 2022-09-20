@@ -1,4 +1,4 @@
-package com.example.avs.randomvideocalling.Models;
+package com.avssolutionnnnnnn.avs.randomvideocalling.Models;
 
 public class User {
     private String uId, name, profile, city;
