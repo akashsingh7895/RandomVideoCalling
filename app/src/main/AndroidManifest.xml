@@ -15,10 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomVideoCalling">
         <activity
-            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.ChatLishActivity"
+            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.VideoTest"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChatLishActivity"
             android:exported="false" />
         <activity
-            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.GroupActivity"
+            android:name=".GroupActivity"
             android:exported="false" />
         <activity
             android:name=".SelectedActivity"
