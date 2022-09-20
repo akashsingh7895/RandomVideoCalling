@@ -3,6 +3,7 @@ package com.avssolutionnnnnnn.avs.randomvideocalling.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +14,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.avssolutionnnnnnn.avs.randomvideocalling.MainActivity;
 import com.bumptech.glide.Glide;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Models.InterfaceJava;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Models.User;
@@ -101,6 +103,7 @@ public class CallActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                startActivity(new Intent(CallActivity.this, MainActivity.class));
             }
         });
 

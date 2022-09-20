@@ -17,31 +17,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/background" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77"
-        app:srcCompat="@drawable/logo" />
+
+    <!--    Terms and Privacy Policy.-->
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-thin"
         android:gravity="center"
         android:text="Please login to continue"
-        android:textColor="@color/primiry"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <!--    Terms and Privacy Policy.-->
-
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView6"
@@ -50,13 +43,10 @@
         android:gravity="center"
         android:text="By continuing, you are agreeing to our "
         android:textColor="@color/primiry"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/privicy_polivy"
         app:layout_constraintEnd_toEndOf="@+id/loginBtn"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/loginBtn"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
-        app:layout_constraintVertical_bias="0.26" />
-
+        app:layout_constraintStart_toStartOf="@+id/loginBtn" />
 
     <TextView
         android:id="@+id/privicy_polivy"
@@ -66,26 +56,25 @@
         android:text=" Terms and Privacy Policy."
         android:textColor="@color/red"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.111" />
+          android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
+        app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+        app:layout_constraintStart_toStartOf="@+id/loginBtn" />
 
     <LinearLayout
         android:id="@+id/loginBtn"
         android:layout_width="0dp"
         android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         android:background="@drawable/white_rounded_bg"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -105,14 +94,7 @@
     </LinearLayout>
 
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView1"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/love_splash" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

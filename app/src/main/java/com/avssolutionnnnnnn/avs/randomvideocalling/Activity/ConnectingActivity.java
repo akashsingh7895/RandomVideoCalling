@@ -141,4 +141,11 @@ public class ConnectingActivity extends AppCompatActivity {
                 });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        database.getReference().child("users").removeValue();
+
+    }
 }
