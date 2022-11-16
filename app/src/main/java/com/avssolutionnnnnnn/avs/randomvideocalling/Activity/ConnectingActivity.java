@@ -5,7 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
 
+import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdListener;
+import com.applovin.mediation.MaxError;
+import com.applovin.mediation.ads.MaxInterstitialAd;
+import com.applovin.mediation.nativeAds.MaxNativeAdListener;
+import com.applovin.mediation.nativeAds.MaxNativeAdLoader;
+import com.applovin.mediation.nativeAds.MaxNativeAdView;
 import com.bumptech.glide.Glide;
 import com.avssolutionnnnnnn.avs.randomvideocalling.R;
 import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityConnectingBinding;
@@ -26,12 +35,16 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
-public class ConnectingActivity extends AppCompatActivity {
+public class ConnectingActivity extends AppCompatActivity implements MaxAdListener {
 
     ActivityConnectingBinding binding;
     FirebaseAuth auth;
     FirebaseDatabase database;
     boolean isOkay = false;
+
+    private MaxInterstitialAd interstitialAd;
+    private MaxNativeAdLoader nativeAdLoader;
+    private MaxAd nativeAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +53,13 @@ public class ConnectingActivity extends AppCompatActivity {
 
         binding = ActivityConnectingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+
+        interstitialAd = new MaxInterstitialAd(getString(R.string.Applovin_Inter),this);
+        interstitialAd.setListener(this);
+        interstitialAd.loadAd();
+        loadnetiveAd();
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -144,8 +164,87 @@ public class ConnectingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         database.getReference().child("users").removeValue();
+       Intent intent = new Intent(ConnectingActivity.this,GenderActivity.class);
+       startActivity(intent);
+
+    }
+
+    void loadnetiveAd(){
+
+        FrameLayout nativeAdContainer = findViewById( R.id.native_ad_layout );
+
+        nativeAdLoader = new MaxNativeAdLoader( getString(R.string.Applovin_Netive), this );
+        nativeAdLoader.setNativeAdListener( new MaxNativeAdListener()
+        {
+            @Override
+            public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad)
+            {
+                nativeAdContainer.setVisibility(View.VISIBLE);
+                // loadingDialog.dismiss();
+                // Clean up any pre-existing native ad to prevent memory leaks.
+                if ( nativeAd != null )
+                {
+                    nativeAdLoader.destroy( nativeAd );
+                }
+
+                // Save ad for cleanup.
+                nativeAd = ad;
+
+                // Add ad view to view.
+                nativeAdContainer.removeAllViews();
+                nativeAdContainer.addView( nativeAdView );
+            }
+
+            @Override
+            public void onNativeAdLoadFailed(final String adUnitId, final MaxError error)
+            {
+                nativeAdContainer.setVisibility(View.GONE);
+                // Toast.makeText(MainActivity.this, "NetiveFailed", Toast.LENGTH_SHORT).show();
+                // loadingDialog.dismiss();
+                // We recommend retrying with exponentially higher delays up to a maximum delay
+            }
+
+            @Override
+            public void onNativeAdClicked(final MaxAd ad)
+            {
+                // Optional click callback
+                // loadingDialog.dismiss();
+            }
+        } );
+
+        nativeAdLoader.loadAd();
+
+    }
+
+
+    @Override
+    public void onAdLoaded(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdDisplayed(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdHidden(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdClicked(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdLoadFailed(String adUnitId, MaxError error) {
+
+    }
+
+    @Override
+    public void onAdDisplayFailed(MaxAd ad, MaxError error) {
 
     }
 }

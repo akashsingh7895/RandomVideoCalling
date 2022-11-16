@@ -40,14 +40,7 @@
 
     </group>
 
-    <group
-        android:id="@+id/group5">
-        <item
-            android:id="@+id/termsCondi"
-            android:icon="@drawable/terms_condi_icon"
-            android:title="Terms and condition"/>
 
-    </group>
 
     <group
         android:id="@+id/group8">

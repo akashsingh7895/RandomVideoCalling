@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Viewolder> {
 
-    int[] arrImgs = {R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img};
+    int[] arrImgs = {R.drawable.img,R.drawable.img_1,R.drawable.img_2,R.drawable.img_4,R.drawable.img_5,R.drawable.img_6};
     String[] arrNames = {"India Video Call..", "Pakistan Video Call..", "USA Video Call...", "Canada Video Call..", "Japan Video Call..", "China Video Call.."};
     Context context;
 

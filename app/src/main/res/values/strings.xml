@@ -1,13 +1,22 @@
 <resources>
-    <string name="app_name">RandomVideoCalling</string>
+    <string name="app_name">Live Talk - Girls Video Call</string>
 
 
+  <!--  Admob test ads/>-->
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="reward_video_ad">ca-app-pub-3940256099942544/5224354917</string>
     <string name="netive_ads">ca-app-pub-3940256099942544/2247696110</string>
     <string name="inter_ads">ca-app-pub-3940256099942544/1033173712</string>
 
+    <!--  Admob test ads/>-->
 
+  <!--appLovin Ads     -->
+
+    <string name="Applovin_banner">1b0b63565f9640df</string>
+    <string name="Applovin_Netive">e2f02a8b7b34c5f1</string>
+    <string name="Applovin_Inter">a09c0c8923b65012</string>
+
+    <!--appLovin Ads     -->
     <string name="drawerOpen">open</string>
     <string name="drawerClose">close</string>
 

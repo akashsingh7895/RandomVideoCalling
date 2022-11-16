@@ -10,6 +10,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdListener;
+import com.applovin.mediation.MaxError;
+import com.applovin.mediation.ads.MaxInterstitialAd;
+import com.applovin.mediation.nativeAds.MaxNativeAdLoader;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Adapters.ChatListAdapter;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Adapters.ListAdapter;
 import com.avssolutionnnnnnn.avs.randomvideocalling.MainActivity;
@@ -26,10 +31,14 @@ import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.android.gms.ads.nativead.NativeAd;
 
-public class GenderActivity extends AppCompatActivity {
+public class GenderActivity extends AppCompatActivity implements MaxAdListener {
 
     ActivityGenderBinding binding;
     InterstitialAd mInterstitialAd;
+
+    private MaxInterstitialAd interstitialAd;
+    private MaxNativeAdLoader nativeAdLoader;
+    private MaxAd nativeAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +48,13 @@ public class GenderActivity extends AppCompatActivity {
 
 
         addAdapter();
+        interstitialAd = new MaxInterstitialAd(getString(R.string.Applovin_Inter),this);
+        interstitialAd.setListener(this);
+        interstitialAd.loadAd();
 
+        if (interstitialAd.isReady()){
+            interstitialAd.showAd();
+        }
     }
 
     private void addAdapter(){
@@ -48,4 +63,33 @@ public class GenderActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onAdLoaded(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdDisplayed(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdHidden(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdClicked(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdLoadFailed(String adUnitId, MaxError error) {
+
+    }
+
+    @Override
+    public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+
+    }
 }

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/li"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/slider_background"
+    android:layout_height="520dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="17dp"
+        android:textColor="@color/black"
+
+        android:text="Terms of Use &amp; Privacy Policy" />
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="12dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:text="Thanks for using this app !\n" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <TextView
+            android:id="@+id/tvPPDesc"
+            android:layout_width="match_parent"
+            android:textSize="12dp"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvAgree"
+        android:layout_width="wrap_content"
+        android:text="Agree"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@color/primiry"
+        android:gravity="center"
+        android:paddingRight="80dp"
+        android:textColor="@color/white"
+        android:paddingLeft="80dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvDisagree"
+        android:layout_width="match_parent"
+        android:textSize="12dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Disagree &amp; Quit" />
+
+</LinearLayout>

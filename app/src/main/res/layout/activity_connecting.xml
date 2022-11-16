@@ -7,6 +7,26 @@
     tools:context=".Activity.ConnectingActivity"
     android:background="@drawable/bg_finding">
 
+
+
+    <FrameLayout
+        android:id="@+id/native_ad_layout"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:layout_marginTop="55dp"
+        android:background="@color/white"
+        app:cardElevation="20dp"
+        android:translationZ="10dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

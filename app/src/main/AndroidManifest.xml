@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomVideoCalling">
         <activity
+            android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.PrivicyPolicyActivity"
+            android:exported="false" />
+        <activity
             android:name="com.avssolutionnnnnnn.avs.randomvideocalling.Activity.ChatLishActivity"
             android:exported="false" />
         <activity
@@ -42,10 +45,6 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.RewardActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activity.CallActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
@@ -64,6 +63,10 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
+
+        <meta-data
+            android:name="applovin.sdk.key"
+            android:value="K3Nf_7D5htbmWpmEzPHqiT5EtCI48VK61LI8bkxlt4agGdT078eyKxEewuh8sPw6S2-q9VbgmiMtNPck8ctAnQ" />
 
         <service
             android:name=".Models.MyFirebaseMessagingService"

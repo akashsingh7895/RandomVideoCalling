@@ -102,8 +102,10 @@ public class CallActivity extends AppCompatActivity {
         binding.endCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent intent = new Intent(CallActivity.this,GenderActivity.class);
+                startActivity(intent);
                 finish();
-                startActivity(new Intent(CallActivity.this, MainActivity.class));
             }
         });
 
@@ -275,6 +277,13 @@ public class CallActivity extends AppCompatActivity {
         super.onDestroy();
         pageExit = true;
         firebaseRef.child(createdBy).setValue(null);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CallActivity.this,GenderActivity.class);
+        startActivity(intent);
         finish();
     }
 }

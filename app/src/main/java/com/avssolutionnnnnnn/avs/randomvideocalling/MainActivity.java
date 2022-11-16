@@ -15,16 +15,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdListener;
+import com.applovin.mediation.MaxError;
+import com.applovin.mediation.ads.MaxInterstitialAd;
+import com.applovin.mediation.nativeAds.MaxNativeAdListener;
+import com.applovin.mediation.nativeAds.MaxNativeAdLoader;
+import com.applovin.mediation.nativeAds.MaxNativeAdView;
 import com.bumptech.glide.Glide;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Activity.ConnectingActivity;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Activity.LogInActivity;
-import com.avssolutionnnnnnn.avs.randomvideocalling.Activity.RewardActivity;
 import com.avssolutionnnnnnn.avs.randomvideocalling.Models.User;
 import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityMainBinding;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.FullScreenContentCallback;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
@@ -42,7 +48,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 
 import org.jetbrains.annotations.NotNull;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MaxAdListener {
 
     ActivityMainBinding binding;
     FirebaseAuth auth;
@@ -55,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     InterstitialAd mInterstitialAd;
 
-    private ActionBarDrawerToggle toggle;
+    private MaxInterstitialAd interstitialAd;
+    private MaxNativeAdLoader nativeAdLoader;
+    private MaxAd nativeAd;
 
 
     @Override
@@ -65,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        interstitialAd = new MaxInterstitialAd(getString(R.string.Applovin_Inter),this);
+        interstitialAd.setListener(this);
+        interstitialAd.loadAd();
+        loadnetiveAd();
 
 
 
@@ -107,8 +121,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isPermissionsGranted()) {
-                    if (coins > 10) {
-                        coins = coins - 10;
+
+                    if (interstitialAd.isReady()){
+                        interstitialAd.showAd();
                         database.getReference().child("profiles")
                                 .child(currentUser.getUid())
                                 .child("coins")
@@ -117,9 +132,17 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("profile", user.getProfile());
                         startActivity(intent);
                         //startActivity(new Intent(MainActivity.this, ConnectingActivity.class));
-                    } else {
-                        Toast.makeText(MainActivity.this, "Insufficient Coins", Toast.LENGTH_SHORT).show();
+                    }else {
+                        database.getReference().child("profiles")
+                                .child(currentUser.getUid())
+                                .child("coins")
+                                .setValue(coins);
+                        Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
+                        intent.putExtra("profile", user.getProfile());
+                        startActivity(intent);
+                        //startActivity(new Intent(MainActivity.this, ConnectingActivity.class));
                     }
+
                 } else {
                     askPermissions();
                 }
@@ -127,15 +150,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.rewardBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, RewardActivity.class));
-            }
-        });
-
-       // showInterAds();
-        Drawer();
 
 
     }
@@ -153,26 +167,51 @@ public class MainActivity extends AppCompatActivity {
         return true;
 
     }
-    public void showInterAds(){
-        AdRequest adRequest = new AdRequest.Builder().build();
+    void loadnetiveAd(){
 
-        InterstitialAd.load(this,getString(R.string.inter_ads), adRequest,
-                new InterstitialAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
-                        // The mInterstitialAd reference will be null until
-                        // an ad is loaded.
-                        mInterstitialAd = interstitialAd;
+        FrameLayout nativeAdContainer = findViewById( R.id.native_ad_layout );
 
-                    }
+        nativeAdLoader = new MaxNativeAdLoader( getString(R.string.Applovin_Netive), this );
+        nativeAdLoader.setNativeAdListener( new MaxNativeAdListener()
+        {
+            @Override
+            public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad)
+            {
+                nativeAdContainer.setVisibility(View.VISIBLE);
+                // loadingDialog.dismiss();
+                // Clean up any pre-existing native ad to prevent memory leaks.
+                if ( nativeAd != null )
+                {
+                    nativeAdLoader.destroy( nativeAd );
+                }
 
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        // Handle the error
+                // Save ad for cleanup.
+                nativeAd = ad;
 
-                        mInterstitialAd = null;
-                    }
-                });
+                // Add ad view to view.
+                nativeAdContainer.removeAllViews();
+                nativeAdContainer.addView( nativeAdView );
+            }
+
+            @Override
+            public void onNativeAdLoadFailed(final String adUnitId, final MaxError error)
+            {
+                nativeAdContainer.setVisibility(View.GONE);
+                // Toast.makeText(MainActivity.this, "NetiveFailed", Toast.LENGTH_SHORT).show();
+                // loadingDialog.dismiss();
+                // We recommend retrying with exponentially higher delays up to a maximum delay
+            }
+
+            @Override
+            public void onNativeAdClicked(final MaxAd ad)
+            {
+                // Optional click callback
+                // loadingDialog.dismiss();
+            }
+        } );
+
+        nativeAdLoader.loadAd();
+
     }
 
   void firebaseNotification(){
@@ -185,103 +224,38 @@ public class MainActivity extends AppCompatActivity {
                           msg = "Failed";
                       }
 
-                      Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                     // Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                   }
               });
   }
-  public void Drawer(){
-      toggle = new ActionBarDrawerToggle(this,binding.drawerLayout,binding.toolbar,R.string.drawerOpen,R.string.drawerClose);
 
-      toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+    @Override
+    public void onAdLoaded(MaxAd ad) {
 
-      binding. drawerLayout.addDrawerListener(toggle);
-      toggle.syncState();
+    }
 
-      binding.navigationView.setItemIconTintList(null);
+    @Override
+    public void onAdDisplayed(MaxAd ad) {
 
-      binding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+    }
 
-          MenuItem menuItem;
+    @Override
+    public void onAdHidden(MaxAd ad) {
 
-          @Override
-          public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-              menuItem = item;
+    }
 
+    @Override
+    public void onAdClicked(MaxAd ad) {
 
-              binding.drawerLayout.closeDrawer(GravityCompat.START);
-              binding.drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-                  @Override
-                  public void onDrawerClosed(View drawerView) {
-                      super.onDrawerClosed(drawerView);
+    }
 
-                      switch (menuItem.getItemId()) {
+    @Override
+    public void onAdLoadFailed(String adUnitId, MaxError error) {
 
-                          case R.id.shareThis:
+    }
 
-                              try {
-                                  Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                                  shareIntent.setType("text/plain");
-                                  shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-                                  String shareMessage= "\nLet me recommend you this application\n\n";
-                                  shareMessage = shareMessage + "https://play.google.com/store/apps/details?id = com.example.akash.newapp" + BuildConfig.APPLICATION_ID +"\n\n";
-                                  shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                                  startActivity(Intent.createChooser(shareIntent, "choose one"));
-                              } catch(Exception e) {
-                                  //e.toString();
-                              }
+    @Override
+    public void onAdDisplayFailed(MaxAd ad, MaxError error) {
 
-                              break;
-                          case R.id.rateThisApp:
-
-                              try{
-                                  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+getPackageName())));
-                              }
-                              catch (ActivityNotFoundException e){
-                                  startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getPackageName())));
-                              }
-
-                              break;
-                          case R.id.contactUs:
-
-                              Intent i = new Intent(Intent.ACTION_SEND);
-                              i.setType("message/rfc822");
-                              i.putExtra(Intent.EXTRA_EMAIL  , new String[]{getString(R.string.supported_email)});
-                              i.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-                              i.putExtra(Intent.EXTRA_TEXT   , "body of email");
-                              try {
-                                  startActivity(Intent.createChooser(i, "Send mail..."));
-                              } catch (android.content.ActivityNotFoundException ex) {
-                                  Toast.makeText(MainActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-                              }
-
-                              break;
-                          case R.id.privacyPoliy:
-
-                              Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy)));
-                              startActivity(browserIntent);
-
-                              break;
-                          case R.id.termsCondi:
-                              Intent searchIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.terms_condition)));
-                              startActivity(searchIntent);
-
-                              break;
-                          case R.id.logout:
-                              FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                              firebaseAuth.signOut();
-                              startActivity(new Intent(MainActivity.this, LogInActivity.class));
-                      }
-                      binding.drawerLayout.removeDrawerListener(this);
-
-
-                  }
-              });
-
-              return true;
-          }
-      });
-
-
-
-  }
+    }
 }

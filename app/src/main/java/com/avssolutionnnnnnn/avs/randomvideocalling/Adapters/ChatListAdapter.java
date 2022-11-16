@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Viewolder> {
 
-    int[] arrImgs = {R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img,R.drawable.img};
+    int[] arrImgs ={R.drawable.img,R.drawable.img_1,R.drawable.img_2,R.drawable.img_4,R.drawable.img_5,R.drawable.img_6};
     String[] arrNames = {"India Video Chats..", "Pakistan Video Chats..", "USA Video Chats...", "Canada Video Chats..", "Japan Video Chats..", "China Video Chats.."};
     Context context;
 
@@ -41,6 +41,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.Viewol
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(context, GroupActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                  context.startActivity(intent);
