@@ -184,7 +184,7 @@ public class WelcomeActivity extends AppCompatActivity implements MaxAdListener 
                     public void onNativeAdLoaded(NativeAd nativeAd) {
                         NativeTemplateStyle styles = new
                                 NativeTemplateStyle.Builder().build();
-                        TemplateView template = findViewById(R.id.my_template);
+                        TemplateView template = findViewById(R.id.template);
                         template.setStyles(styles);
                         template.setNativeAd(nativeAd);
                     }

@@ -61,6 +61,10 @@ public class GenderActivity extends AppCompatActivity implements MaxAdListener {
         binding.rv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GenderActivity.this,WelcomeActivity.class));
+    }
 
     @Override
     public void onAdLoaded(MaxAd ad) {

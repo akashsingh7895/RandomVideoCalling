@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 
+
 import com.applovin.mediation.MaxAd;
 import com.applovin.mediation.MaxAdListener;
 import com.applovin.mediation.MaxError;
@@ -241,6 +242,7 @@ public class ConnectingActivity extends AppCompatActivity implements MaxAdListen
     public void onAdLoadFailed(String adUnitId, MaxError error) {
 
     }
+
 
     @Override
     public void onAdDisplayFailed(MaxAd ad, MaxError error) {
