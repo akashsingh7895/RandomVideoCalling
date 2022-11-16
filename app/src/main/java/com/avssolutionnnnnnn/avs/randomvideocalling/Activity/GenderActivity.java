@@ -20,8 +20,7 @@ import com.avssolutionnnnnnn.avs.randomvideocalling.Adapters.ListAdapter;
 import com.avssolutionnnnnnn.avs.randomvideocalling.MainActivity;
 import com.avssolutionnnnnnn.avs.randomvideocalling.R;
 import com.avssolutionnnnnnn.avs.randomvideocalling.databinding.ActivityGenderBinding;
-import com.google.android.ads.nativetemplates.NativeTemplateStyle;
-import com.google.android.ads.nativetemplates.TemplateView;
+
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
