@@ -204,7 +204,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/white"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginTop="10dp"
         app:cardElevation="20dp"
         app:layout_constraintEnd_toEndOf="parent"

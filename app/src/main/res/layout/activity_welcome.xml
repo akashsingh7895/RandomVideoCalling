@@ -54,7 +54,8 @@
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginTop="20dp"
-            android:visibility="visible"
+
+            android:visibility="gone"
             app:gnt_template_type="@layout/gnt_medium_template_view"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,116 +1,58 @@
 {
   "project_info": {
-    "project_number": "436617065320",
-    "firebase_url": "https://randomvideocalling-ed4a3-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "randomvideocalling-ed4a3",
-    "storage_bucket": "randomvideocalling-ed4a3.appspot.com"
+    "project_number": "1084855422693",
+    "firebase_url": "https://videocalling-d7608-default-rtdb.firebaseio.com",
+    "project_id": "videocalling-d7608",
+    "storage_bucket": "videocalling-d7608.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:436617065320:android:131e185ccf999d64fc1cdd",
+        "mobilesdk_app_id": "1:1084855422693:android:172acc2751e0db6a0c4e0c",
         "android_client_info": {
-          "package_name": "com.avs.ramdomvideocalling"
+          "package_name": "com.akashsingh.avs.randomvideocalling"
         }
       },
       "oauth_client": [
         {
-          "client_id": "436617065320-ev294g2hf9qp38429h3mc3bgp8uq811u.apps.googleusercontent.com",
+          "client_id": "1084855422693-mc997l9ic1kfam4a0sg0238ffo2usrqu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.avs.ramdomvideocalling",
+            "package_name": "com.akashsingh.avs.randomvideocalling",
+            "certificate_hash": "523004d0de48dabf74bb544d279a873b30c7f62d"
+          }
+        },
+        {
+          "client_id": "1084855422693-rctksj0tachhuld0vfn9khpoufml42u0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akashsingh.avs.randomvideocalling",
+            "certificate_hash": "275481eea2c1ec8e3f7f4f291eaa0b42c440f791"
+          }
+        },
+        {
+          "client_id": "1084855422693-rf7bnqp09hqfaeunp78vdati3kmk3taj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akashsingh.avs.randomvideocalling",
             "certificate_hash": "27d285aa81b5cbaae5f66db1acd7766f6ac63eb0"
           }
         },
         {
-          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+          "client_id": "1084855422693-bgpe07vpis38s653hnr327iv46ggumdd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
+          "current_key": "AIzaSyCNsaYLq958zhlAheP32NUDZcH7lfnQd-o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:436617065320:android:955de2c391c9a14cfc1cdd",
-        "android_client_info": {
-          "package_name": "com.avssolution.avs.randomvideocalling"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "436617065320-qmsjts9sq7cs7mvs88ueifdhfmhhkken.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.avssolution.avs.randomvideocalling",
-            "certificate_hash": "f0a91ce31c00a659336b73a924f1e60262e5df38"
-          }
-        },
-        {
-          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:436617065320:android:d640318cb373129dfc1cdd",
-        "android_client_info": {
-          "package_name": "com.avssolutionnnnnnn.avs.randomvideocalling"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "436617065320-uol0q0slmve0b6k2ih0olqhe2k4u77fi.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.avssolutionnnnnnn.avs.randomvideocalling",
-            "certificate_hash": "f0a91ce31c00a659336b73a924f1e60262e5df38"
-          }
-        },
-        {
-          "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDB_BKgzZrfuXMqBmEdKipcADi4iNUE74g"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "436617065320-4jrnl9ake22hg83g2nn92jdqsd22htdl.apps.googleusercontent.com",
+              "client_id": "1084855422693-bgpe07vpis38s653hnr327iv46ggumdd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

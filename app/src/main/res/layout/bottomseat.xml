@@ -8,7 +8,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/slider_background"
-    android:layout_height="520dp">
+    android:layout_height="580dp">
 
     <TextView
         android:id="@+id/textView"
@@ -39,11 +39,21 @@
             android:text="" />
     </ScrollView>
 
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:text="I Accepcted Terms and Condition"
+        android:layout_marginLeft="16dp"
+       />
+
+
     <TextView
         android:id="@+id/tvAgree"
         android:layout_width="wrap_content"
         android:text="Agree"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:background="@color/primiry"
         android:gravity="center"
