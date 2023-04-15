@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/primiry">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:padding="10dp"
+        android:fontFamily="@font/comic"
+        android:text="Do you want to report this\n User ? "
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp">
+            <RadioButton
+                android:id="@+id/cbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="16dp"
+                android:text="Sexual Behaviour"
+                android:textColor="@color/white"
+                android:fontFamily="@font/comic"
+                android:buttonTint="@color/white"/>
+
+            <RadioButton
+                android:id="@+id/cbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="16dp"
+                android:text="Offensive Language"
+                android:textColor="@color/white"
+                android:fontFamily="@font/comic"
+                android:buttonTint="@color/white"/>
+
+            <RadioButton
+                android:id="@+id/cbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="16dp"
+                android:text="Harassment"
+                android:textColor="@color/white"
+                android:fontFamily="@font/comic"
+                android:buttonTint="@color/white"/>
+
+            <RadioButton
+                android:id="@+id/cbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Nudity"
+                android:textColor="@color/white"
+                android:fontFamily="@font/comic"
+                android:buttonTint="@color/white"/>
+
+            <RadioButton
+                android:id="@+id/cbox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Ohters"
+                android:textColor="@color/white"
+                android:fontFamily="@font/comic"
+                android:buttonTint="@color/white"/>
+        </RadioGroup>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/no"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/gray"
+                android:layout_marginLeft="16dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primiry"
+                    android:text="No"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comic"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/yes"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/red"
+                android:layout_marginLeft="16dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Yes"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comic"/>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

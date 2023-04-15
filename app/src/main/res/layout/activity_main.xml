@@ -135,6 +135,21 @@
         app:layout_constraintTop_toTopOf="@+id/lottieAnimationView1" />
 
 
+    <com.google.android.ads.nativetemplates.TemplateView
+        android:id="@+id/template"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:visibility="visible"
+        app:gnt_template_type="@layout/gnt_medium_template_view"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView1"
+        app:layout_constraintVertical_bias="0.675" />
+
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="0dp"

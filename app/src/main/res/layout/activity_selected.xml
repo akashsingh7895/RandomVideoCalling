@@ -9,39 +9,38 @@
     android:background="@drawable/background">
 
 
-    <FrameLayout
-        android:id="@+id/native_ad_layout"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+    <com.google.android.ads.nativetemplates.TemplateView
+        android:id="@+id/template"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:visibility="visible"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:background="@color/white"
-        app:cardElevation="20dp"
-        android:layout_marginBottom="40dp"
+        app:gnt_template_type="@layout/gnt_medium_template_view"
+
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card1"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:cardBackgroundColor="@color/primiry"
-            android:layout_marginRight="16dp">
+            android:layout_marginRight="16dp"
+            app:cardBackgroundColor="@color/primiry">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,21 +51,21 @@
                     android:id="@+id/lottieAnimationView2"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:lottie_autoPlay="true"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:visibility="visible"
-                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/video" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Video Calls"
-                    android:layout_marginTop="8dp"
                     android:layout_gravity="center"
-                    android:textSize="18dp"/>
+                    android:layout_marginTop="8dp"
+                    android:text="Video Calls"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
 
 
             </LinearLayout>
@@ -78,8 +77,8 @@
             android:id="@+id/card2"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            app:cardBackgroundColor="@color/primiry"
-            android:layout_marginLeft="16dp">
+            android:layout_marginLeft="16dp"
+            app:cardBackgroundColor="@color/primiry">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,21 +89,21 @@
                     android:id="@+id/lottieAnimationView1"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:lottie_autoPlay="true"
+                    android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:visibility="visible"
-                    android:layout_gravity="center"
+                    app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/chat" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Chats"
-                    android:layout_marginTop="8dp"
                     android:layout_gravity="center"
-                    android:textSize="18dp"/>
+                    android:layout_marginTop="8dp"
+                    android:text="Chats"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
 
 
             </LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.akashsingh.avs.randomvideocalling">
+    package="com.avssolution.videocalling_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -15,61 +15,79 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RandomVideoCalling">
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.PrivicyPolicyActivity"
-            android:exported="false" />
+            android:name="com.avssolution.videocalling_app.Activity.CallTypeActivity"
+            android:exported="true" >
+
+
+
+
+        </activity>
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.ChatLishActivity"
-            android:exported="false" />
+            android:name="com.avssolution.videocalling_app.Activity.RoomActivity"
+            android:exported="true"></activity>
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.GroupActivity"
-            android:exported="false" />
+            android:name="com.avssolution.videocalling_app.FakeCall.FakeCallActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.SelectedActivity"
-            android:exported="false" />
+            android:name="com.avssolution.videocalling_app.Activity.PrivicyPolicyActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.SplashActivity"
+            android:name="com.avssolution.videocalling_app.Activity.ChatLishActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.avssolution.videocalling_app.Activity.GroupActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.avssolution.videocalling_app.SelectedActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.avssolution.videocalling_app.Activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.WelcomeActivity"
+            android:name="com.avssolution.videocalling_app.Activity.WelcomeActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.GenderActivity"
+            android:name="com.avssolution.videocalling_app.Activity.GenderActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.CallActivity"
+            android:name="com.avssolution.videocalling_app.Activity.CallActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.ConnectingActivity"
+            android:name="com.avssolution.videocalling_app.Activity.ConnectingActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.Activity.LogInActivity"
+            android:name="com.avssolution.videocalling_app.Activity.LogInActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.akashsingh.avs.randomvideocalling.MainActivity"
+            android:name="com.avssolution.videocalling_app.MainActivity"
             android:exported="true" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <meta-data
-            android:name="applovin.sdk.key"
-            android:value="K3Nf_7D5htbmWpmEzPHqiT5EtCI48VK61LI8bkxlt4agGdT078eyKxEewuh8sPw6S2-q9VbgmiMtNPck8ctAnQ" />
-
         <service
-            android:name="com.akashsingh.avs.randomvideocalling.Models.MyFirebaseMessagingService"
+            android:name="com.avssolution.videocalling_app.Models.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

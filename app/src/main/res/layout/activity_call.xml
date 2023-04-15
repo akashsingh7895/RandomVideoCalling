@@ -88,6 +88,16 @@
         </LinearLayout>
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/ic_alert"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_alert" />
+
     <androidx.constraintlayout.widget.Group
         android:id="@+id/controls"
         android:layout_width="wrap_content"
@@ -122,6 +132,9 @@
         android:layout_height="wrap_content"
         android:visibility="visible"
         app:constraint_referenced_ids="loadingAnimation,connectingImage" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
