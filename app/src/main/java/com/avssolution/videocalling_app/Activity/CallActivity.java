@@ -159,30 +159,25 @@ public class CallActivity extends AppCompatActivity {
 
         // call disconnect auto back
 
-        database.getReference().child("users")
-               // .child(FirebaseAuth.getInstance().getUid())
+        database.getReference()
+                .child("users")
+                .child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.getValue()!=null){
 
-                        if (!snapshot.exists()){
-                            Intent intent = new Intent(CallActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(CallActivity.this, "not exits", Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(CallActivity.this, " exits", Toast.LENGTH_SHORT).show();
-
+                         startActivity(new Intent(CallActivity.this,MainActivity.class));
+                         finish();
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        Log.d("error", String.valueOf(error));
-                        Toast.makeText(CallActivity.this, ""+error, Toast.LENGTH_SHORT).show();
+
                     }
                 });
-
         // call disconnect auto back
 
 
@@ -356,12 +351,7 @@ public class CallActivity extends AppCompatActivity {
         finish();
 
 
-        // for testing
-//        database.getReference().child("users")
-//                .child(FirebaseAuth.getInstance().getUid())
-//                .removeValue();
 
-      //  for testing
 
     }
 
@@ -372,3 +362,14 @@ public class CallActivity extends AppCompatActivity {
         finish();
     }
 }
+
+
+
+// for ( DataSnapshot dataSnapshot : snapshot.getChildren()){
+//         String createdByR = dataSnapshot.child("createdBy").getValue().toString();
+//         if (createdByR==null){
+//         startActivity(new Intent(CallActivity.this,MainActivity.class));
+//        finish();
+//        }
+//
+//        }
