@@ -13,6 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdListener;
+import com.applovin.mediation.MaxError;
+import com.applovin.mediation.ads.MaxInterstitialAd;
 import com.avssolution.videocalling_app.Activity.WelcomeActivity;
 import com.avssolution.videocalling_app.Models.User;
 import com.avssolution.videocalling_app.Activity.ConnectingActivity;
@@ -41,7 +45,7 @@ import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.kaopiz.kprogresshud.KProgressHUD;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MaxAdListener {
 
     ActivityMainBinding binding;
     FirebaseAuth auth;
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     KProgressHUD progress;
 
     InterstitialAd mInterstitialAd;
+    private MaxInterstitialAd applovinInterstitialAd;
+
 
 
     @Override
@@ -62,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        applovinInterstitialAd = new MaxInterstitialAd(getString(R.string.applovin_inter),this);
+        applovinInterstitialAd.setListener(this);
+        applovinInterstitialAd.loadAd();
 
         progress = KProgressHUD.create(this);
         progress.setDimAmount(0.5f);
@@ -123,9 +133,17 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                     } else {
-                        Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
-                        intent.putExtra("profile", user.getProfile());
-                        startActivity(intent);
+                        if (applovinInterstitialAd.isReady()){
+                            applovinInterstitialAd.showAd();
+                            Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
+                            intent.putExtra("profile", user.getProfile());
+                            startActivity(intent);
+                        }else {
+                            Intent intent = new Intent(MainActivity.this, ConnectingActivity.class);
+                            intent.putExtra("profile", user.getProfile());
+                            startActivity(intent);
+                        }
+
                     }
 
 
@@ -174,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-    startActivity(new Intent(MainActivity.this,WelcomeActivity.class));
+        startActivity(new Intent(MainActivity.this,WelcomeActivity.class));
         finish();
 
     }
@@ -217,5 +235,35 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         adLoader.loadAd(new AdRequest.Builder().build());
+    }
+
+    @Override
+    public void onAdLoaded(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdDisplayed(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdHidden(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdClicked(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdLoadFailed(String adUnitId, MaxError error) {
+
+    }
+
+    @Override
+    public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+
     }
 }

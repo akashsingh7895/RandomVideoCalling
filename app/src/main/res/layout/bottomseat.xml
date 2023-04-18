@@ -8,7 +8,7 @@
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     android:background="@drawable/slider_background"
-    android:layout_height="580dp">
+    android:layout_height="605dp">
 
     <TextView
         android:id="@+id/textView"
@@ -48,6 +48,13 @@
         android:layout_marginLeft="16dp"
        />
 
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Yes i confirm , I am 18+"
+        android:layout_marginLeft="16dp"
+        />
 
     <TextView
         android:id="@+id/tvAgree"

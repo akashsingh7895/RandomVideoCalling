@@ -14,16 +14,21 @@
 
     <!--  Admob real ads/>-->
 
-    <!--    <string name="admob_app_id">ca-app-pub-6429756793671388~8014911103</string>-->
-    <!--    <string name="banner_ad">ca-app-pub-6429756793671388/4452738912</string>-->
-    <!--    <string name="netive_ads">ca-app-pub-6429756793671388/3889632130</string>-->
-    <!--    <string name="inter_ads">ca-app-pub-6429756793671388/9535628916</string>-->
+<!--        <string name="admob_app_id">ca-app-pub-6429756793671388~8014911103</string>-->
+<!--        <string name="banner_ad">ca-app-pub-6429756793671388/4452738912</string>-->
+<!--        <string name="netive_ads">ca-app-pub-6429756793671388/3889632130</string>-->
+<!--        <string name="inter_ads">ca-app-pub-6429756793671388/9535628916</string>-->
 
     <!--  Admob real ads/>-->
 
 
     <string name="drawerOpen">open</string>
     <string name="drawerClose">close</string>
+
+    <string name="applovin_sdk">zWKs7B5f-TDGtt7OHfmQdK_TDgFMhG3QoGEWzBSbZBa-Q91WZWA5wrql6Vog243sAxPZWJGQtHN6PgFkv_kmuU</string>
+    <string name="applovin_inter">d28a6db57426dd09</string>
+    <string name="applovin_netive">9f9d1ed91be7cba4</string>
+
 
 
     <string name="supported_email">akash4099@gmail.com</string>

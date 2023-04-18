@@ -119,12 +119,8 @@ public class CallActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
- //               database.getReference().child("users").removeValue();
-
-//                callJavaScriptFunction("javascript:toggleVideo(\""+!isVideo+"\")");
-//                callJavaScriptFunction("javascript:toggleAudio(\""+!isAudio+"\")");
-
+                callJavaScriptFunction("javascript:toggleVideo(\""+!isVideo+"\")");
+                callJavaScriptFunction("javascript:toggleAudio(\""+!isAudio+"\")");
 
                 Intent intent = new Intent(CallActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -157,29 +153,32 @@ public class CallActivity extends AppCompatActivity {
         });
 
 
-        // call disconnect auto back
 
-        database.getReference()
+
+
+        FirebaseDatabase.getInstance().getReference()
                 .child("users")
-                .child(FirebaseAuth.getInstance().getUid())
+                .child(createdBy)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.getValue()!=null){
+                    public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                        if(snapshot.getValue() != null) {
+                            Log.d("asdsd","in success snapshot not null   "+ createdBy );
 
                         }else {
-                         startActivity(new Intent(CallActivity.this,MainActivity.class));
-                         finish();
+                            Log.d("asdsd","in success snapshot null     " );
+                            Toast.makeText(CallActivity.this, "Call End", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(CallActivity.this,MainActivity.class));
+                            finish();
+
                         }
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                    public void onCancelled(@NonNull @NotNull DatabaseError error) {
 
                     }
                 });
-        // call disconnect auto back
-
 
     }
 
@@ -350,9 +349,6 @@ public class CallActivity extends AppCompatActivity {
         firebaseRef.child(createdBy).setValue(null);
         finish();
 
-
-
-
     }
 
     @Override
@@ -365,11 +361,59 @@ public class CallActivity extends AppCompatActivity {
 
 
 
-// for ( DataSnapshot dataSnapshot : snapshot.getChildren()){
-//         String createdByR = dataSnapshot.child("createdBy").getValue().toString();
-//         if (createdByR==null){
-//         startActivity(new Intent(CallActivity.this,MainActivity.class));
-//        finish();
-//        }
+// if (snapshot.hasChild(FirebaseAuth.getInstance().getUid())){
+//         Log.d("asdsd","one ");
 //
-//        }
+//         }else {
+//
+//         Log.d("asdsd","two ");
+//
+//         Toast.makeText(CallActivity.this, "not exits", Toast.LENGTH_SHORT).show();
+//         ////////////////////////////////////////////////
+//         // startActivity(new Intent(CallActivity.this,WelcomeActivity.class));
+//         /////////////////////////////////
+//         }
+
+
+
+////        // call disconnect auto back
+//        FirebaseDatabase.getInstance()
+//                .getReference()
+//                .child("users")
+//                .addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot!=null){
+//                            Log.d("asdsd","in success snapshot null not null ");
+//                         if (snapshot.child(createdBy).exists()){
+//                             Log.d("asdsd","one " +createdBy);
+//
+//                              }else {
+//                             Log.d("asdsd","two ");
+//                             Toast.makeText(CallActivity.this, "Call End", Toast.LENGTH_SHORT).show();
+//                             startActivity(new Intent(CallActivity.this,MainActivity.class));
+//                             finish();
+//
+//         }
+//
+//                        }else {
+//
+//                            Log.d("asdsd","in success snapshot null");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//                        Log.d("asdsd","fails");
+//                    }
+//                });
+//        // call disconnect auto back
+
+
+
+
+
+
+
+
+

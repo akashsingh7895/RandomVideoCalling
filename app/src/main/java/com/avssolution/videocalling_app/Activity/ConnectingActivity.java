@@ -14,6 +14,11 @@ import com.avssolution.videocalling_app.R;
 import com.avssolution.videocalling_app.databinding.ActivityConnectingBinding;
 
 import com.bumptech.glide.Glide;
+import com.google.android.ads.nativetemplates.NativeTemplateStyle;
+import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +50,7 @@ public class ConnectingActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+        loadNetiveads();
 
         String profile = getIntent().getStringExtra("profile");
         Glide.with(this)
@@ -142,13 +148,24 @@ public class ConnectingActivity extends AppCompatActivity {
                     }
                 });
 
+    }
 
-        // fake call activity
+    public void loadNetiveads(){
+        MobileAds.initialize(this);
+        AdLoader adLoader = new AdLoader.Builder(this, getString(R.string.netive_ads))
+                .forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
+                    @Override
+                    public void onNativeAdLoaded(NativeAd nativeAd) {
+                        NativeTemplateStyle styles = new
+                                NativeTemplateStyle.Builder().build();
+                        // TemplateView template = findViewById(R.id.my_template);
+                        binding.template.setStyles(styles);
+                        binding.template.setNativeAd(nativeAd);
+                    }
+                })
+                .build();
 
-//       
-        // fake call
-
-
+        adLoader.loadAd(new AdRequest.Builder().build());
     }
 
     @Override

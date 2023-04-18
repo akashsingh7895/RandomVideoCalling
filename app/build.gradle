@@ -12,9 +12,9 @@ android {
         applicationId "com.avssolution.videocalling_app"
         minSdk 21
         targetSdk 32
-        versionCode 8
+        versionCode 9
         multiDexEnabled true
-        versionName "8.0"
+        versionName "9.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

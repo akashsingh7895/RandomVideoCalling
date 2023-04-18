@@ -23,6 +23,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.applovin.mediation.MaxAd;
+import com.applovin.mediation.MaxAdListener;
+import com.applovin.mediation.MaxError;
+import com.applovin.mediation.ads.MaxInterstitialAd;
+import com.applovin.sdk.AppLovinSdk;
+import com.applovin.sdk.AppLovinSdkConfiguration;
 import com.avssolution.videocalling_app.R;
 import com.avssolution.videocalling_app.SelectedActivity;
 import com.avssolution.videocalling_app.databinding.ActivityWelcomeBinding;
@@ -44,7 +50,7 @@ import com.google.firebase.BuildConfig;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class WelcomeActivity extends AppCompatActivity  {
+public class WelcomeActivity extends AppCompatActivity implements MaxAdListener {
 
     ActivityWelcomeBinding  binding ;
     InterstitialAd mInterstitialAd;
@@ -54,6 +60,8 @@ public class WelcomeActivity extends AppCompatActivity  {
 
     public static Dialog loadingDialog, adsDialog;
     int value;
+
+    private MaxInterstitialAd applovinInterstitialAd;
 
 
 
@@ -67,6 +75,31 @@ public class WelcomeActivity extends AppCompatActivity  {
 
         analytics = FirebaseAnalytics.getInstance(WelcomeActivity.this);
 
+
+        // Make sure to set the mediation provider value to "max" to ensure proper functionality
+        AppLovinSdk.getInstance( WelcomeActivity.this ).setMediationProvider( "max" );
+        AppLovinSdk.initializeSdk( WelcomeActivity.this, new AppLovinSdk.SdkInitializationListener() {
+            @Override
+            public void onSdkInitialized(final AppLovinSdkConfiguration configuration)
+            {
+                // AppLovin SDK is initialized, start loading ads
+            }
+        } );
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        loadNetiveads();
+        loadInterAds();
+
+
+        applovinInterstitialAd = new MaxInterstitialAd(getString(R.string.applovin_inter),this);
+        applovinInterstitialAd.setListener(this);
+        applovinInterstitialAd.loadAd();
+
         loadingDialog = new Dialog(WelcomeActivity.this);
         loadingDialog.setContentView(R.layout.bottomseat);
         loadingDialog.setCancelable(false);
@@ -77,6 +110,7 @@ public class WelcomeActivity extends AppCompatActivity  {
         TextView aggri = loadingDialog.findViewById(R.id.tvAgree);
         TextView disaggri = loadingDialog.findViewById(R.id.tvDisagree);
         CheckBox checkBox = loadingDialog.findViewById(R.id.checkbox);
+        CheckBox checkBox1 = loadingDialog.findViewById(R.id.checkbox1);
 
 
         // FetchData from shredpref
@@ -98,11 +132,14 @@ public class WelcomeActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 if (checkBox.isChecked()){
-                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                    myEdit.putInt("value",1);
-                    myEdit.commit();
-                    loadingDialog.dismiss();
+                    if (checkBox1.isChecked()){
+                        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                        myEdit.putInt("value",1);
+                        myEdit.commit();
+                        loadingDialog.dismiss();
+                    }
+
                 }else {
                     Toast.makeText(WelcomeActivity.this, "Click the check box", Toast.LENGTH_SHORT).show();
                 }
@@ -152,14 +189,7 @@ public class WelcomeActivity extends AppCompatActivity  {
                 "\n" +
                 "If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact me at singhakash4099@gmail.com.");
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
-        });
 
-        loadNetiveads();
-        loadInterAds();
 
 
         binding.linearLayout.setOnClickListener(new View.OnClickListener() {
@@ -175,8 +205,15 @@ public class WelcomeActivity extends AppCompatActivity  {
                         }
                     });
                 } else {
-                    Intent intent = new Intent(WelcomeActivity.this, SelectedActivity.class);
-                    startActivity(intent);
+                    if (applovinInterstitialAd.isReady()){
+                        applovinInterstitialAd.showAd();
+                        Intent intent = new Intent(WelcomeActivity.this, SelectedActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Intent intent = new Intent(WelcomeActivity.this, SelectedActivity.class);
+                        startActivity(intent);
+                    }
+
                 }
 
 
@@ -237,5 +274,35 @@ public class WelcomeActivity extends AppCompatActivity  {
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
+    }
+
+    @Override
+    public void onAdLoaded(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdDisplayed(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdHidden(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdClicked(MaxAd ad) {
+
+    }
+
+    @Override
+    public void onAdLoadFailed(String adUnitId, MaxError error) {
+
+    }
+
+    @Override
+    public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+
     }
 }
